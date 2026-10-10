@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portalbound — A Prompt Adventure</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main id="game">
+    <div id="world" aria-label="3D game world"></div>
+    <div class="vignette"></div>
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Portalbound home"><span class="brand-mark">✳</span> PORTALBOUND <span class="brand-sub">A PROMPT ADVENTURE</span></a>
+      <div class="level-pill"><span class="live-dot"></span><span id="level-label">LEVEL 01 / 07</span></div>
+      <button class="icon-button" id="help-button" aria-label="Show controls">?</button>
+    </header>
+
+    <section class="mission-card">
+      <div class="eyebrow">CURRENT MISSION</div>
+      <h1 id="level-title">The Listening Grove</h1>
+      <p id="level-description">A fallen tree blocks the old path. The portal is somewhere beyond the grove.</p>
+      <div class="hint-callout" id="hint-callout" aria-live="polite"><span>✦ HINT</span><p id="hint-copy"></p></div>
+      <div class="mission-progress"><span id="progress-fill"></span></div>
+      <div class="mission-foot"><span id="objective-label">Find a way through</span><span id="objective-state">IN PROGRESS</span></div>
+    </section>
+
+    <div class="world-hint" id="world-hint"><span class="hint-key">CLICK</span> an object to focus it</div>
+
+    <section class="prompt-panel" aria-label="Prompt action panel">
+      <div class="selected-row"><span class="selection-orb"></span><span class="selected-prefix">FOCUSED</span><strong id="selected-name">Nothing selected</strong><button id="clear-selection" class="clear-button" title="Clear selection">×</button></div>
+      <div class="prompt-row">
+        <label class="sr-only" for="prompt-input">Write an action for the selected object</label>
+        <input id="prompt-input" type="text" placeholder="Select something in the world first…" autocomplete="off" disabled />
+        <button id="send-prompt" class="send-button" disabled aria-label="Send prompt">↗</button>
+      </div>
+      <div class="panel-foot"><span><kbd>ENTER</kbd> to send</span><span>Try a clear, sensible action</span></div>
+    </section>
+
+    <aside class="spellbook-card" id="spellbook-card">
+      <div class="spellbook-heading"><span class="book-icon">▤</span><span><small>FIELD NOTES</small><strong>Spellbook</strong></span><span class="spell-count" id="spell-count">01</span></div>
+      <div id="spell-list" class="spell-list"></div>
+      <div class="spellbook-tip">Discover a spell, then use it in a prompt.</div>
+    </aside>
+
+    <div class="toast" id="toast" aria-live="polite"></div>
+    <div class="level-complete" id="level-complete" aria-live="polite">
+      <div class="complete-icon">✦</div><div class="eyebrow">PATH OPEN</div><h2 id="complete-title">The grove stirs</h2><p id="complete-copy">The portal is awake. Step inside to continue.</p><button id="enter-portal" class="primary-button">ENTER THE PORTAL <span>→</span></button>
+    </div>
+    <div class="final-screen" id="final-screen">
+      <div class="final-symbol">✧</div><div class="eyebrow">THE WORLD IS YOURS</div><h2>The portal opens.</h2><p>The witch’s spell has broken. Beyond the threshold, a thousand new worlds are waiting.</p><button id="restart-game" class="primary-button">PLAY AGAIN <span>↻</span></button>
+    </div>
+    <div class="controls-note" id="controls-note"><button id="close-help" aria-label="Close controls">×</button><div class="eyebrow">HOW TO EXPLORE</div><p><kbd>W</kbd> <kbd>A</kbd> <kbd>S</kbd> <kbd>D</kbd> move · <kbd>SHIFT</kbd> run</p><p>Click an object, write what it should do, and press <kbd>ENTER</kbd>. Right-drag to look around.</p><p>Read your spellbook for hints. If an action does not fit the world, try something else.</p></div>
+  </main>
+  <script type="module" src="game.js"></script>
+</body>
+</html>
